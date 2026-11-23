@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parsing Parameter POST - Flask</title>
+    <!-- Menghubungkan file styles.css dari folder static -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Form Input Data Mahasiswa</h2>
+        
+        <!-- Form menggunakan method POST -->
+        <form action="/" method="POST">
+            <div class="form-group">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" placeholder="Masukkan nama..." required>
+            </div>
+
+            <div class="form-group">
+                <label for="nim">NIM:</label>
+                <input type="text" id="nim" name="nim" placeholder="Masukkan NIM..." required>
+            </div>
+
+            <div class="form-group">
+                <label for="prodi">Program Studi:</label>
+                <input type="text" id="prodi" name="prodi" placeholder="Contoh: Teknologi Informasi" required>
+            </div>
+
+            <button type="submit">Kirim Data (POST)</button>
+        </form>
+
+        <!-- Menampilkan hasil parsing jika form sudah disubmit -->
+        {% if hasil %}
+        <div class="result-box">
+            <h3>Hasil Parsing Parameter POST:</h3>
+            <p><strong>Nama:</strong> {{ hasil.nama }}</p>
+            <p><strong>NIM:</strong> {{ hasil.nim }}</p>
+            <p><strong>Prodi:</strong> {{ hasil.prodi }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
